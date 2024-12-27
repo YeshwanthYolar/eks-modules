@@ -67,7 +67,7 @@ module "eks_cluster" {
 module "eks_node_group" {
   source = "./modules/nodegroup"
 
-  cluster_name             = var.cluster_name
+  cluster_name             = module.eks_cluster.eks_cluster_name
   node_group_name          = var.node_group_name
   node_role_arn            = module.iam-role.node_group_role_arn
   # public_subnet_cidrs      = var.public_subnet_cidrs
